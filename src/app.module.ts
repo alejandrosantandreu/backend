@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { HttpModule } from '@nestjs/axios';
 import { MetricsModule } from './metrics/metrics.module';
 import { QualityFactorsModule } from './quality-factors/quality-factors.module';
+import { StrategicIndicatorsModule } from './strategic-indicators/strategic-indicators.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { QualityFactorsModule } from './quality-factors/quality-factors.module';
     }),
     MetricsModule,
     QualityFactorsModule,
+    StrategicIndicatorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
