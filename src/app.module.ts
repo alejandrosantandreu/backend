@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HttpModule } from '@nestjs/axios';
 import { MetricsModule } from './metrics/metrics.module';
+import { QualityFactorsModule } from './quality-factors/quality-factors.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { MetricsModule } from './metrics/metrics.module';
       maxRedirects: 5,
     }),
     MetricsModule,
+    QualityFactorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
