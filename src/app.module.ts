@@ -6,6 +6,7 @@ import { MetricsModule } from './metrics/metrics.module';
 import { QualityFactorsModule } from './quality-factors/quality-factors.module';
 import { StrategicIndicatorsModule } from './strategic-indicators/strategic-indicators.module';
 import { CategoriesModule } from './categories/categories.module';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CategoriesModule } from './categories/categories.module';
     QualityFactorsModule,
     StrategicIndicatorsModule,
     CategoriesModule,
+    ProjectsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
