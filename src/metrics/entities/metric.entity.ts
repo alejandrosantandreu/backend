@@ -25,5 +25,5 @@ export class Metric {
     @Column()
     forecastingError: string;
     @Column()
-    qualityFactors: Array<string>;
+    qualityFactors: string[];
 }
