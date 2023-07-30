@@ -11,7 +11,7 @@ export class Project {
     @Column()
     description: string;
     @Column({ nullable: true, default: null })
-    logo: null;
+    logo: string;
     @Column()
     active: boolean;
     @Column()
@@ -21,9 +21,9 @@ export class Project {
     @Column()
     githubURL: string;
     @Column({ nullable: true, default: null })
-    prtURL: null;
+    prtURL: string;
     @Column()
     isGlobal: boolean;
     @Column({ nullable: true, default: null })
-    students: null;
+    students: string;
 }

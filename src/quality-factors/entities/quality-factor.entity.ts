@@ -27,9 +27,9 @@ export class QualityFactor {
     @Column({ nullable: true })
     mismatchDays: number;
     @Column({ nullable: true })
-    missingMetrics: Array<any>;
+    missingMetrics: Array<string>;
     @Column()
-    type: any;
+    type: string;
     @Column()
     strategicIndicators: Array<string>;
     @Column()
