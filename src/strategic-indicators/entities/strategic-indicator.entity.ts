@@ -20,7 +20,7 @@ export class StrategicIndicator {
     rationale: string;
     @Column('text', { array: true })
     probabilities: string[];
-    @Column({ type: 'datetime' })
+    @Column()
     date: Date;
     @Column()
     datasource: string;

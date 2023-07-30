@@ -13,7 +13,7 @@ export class QualityFactor {
     value: number;
     @Column()
     value_description: string;
-    @Column({ type: 'datetime' })
+    @Column()
     date: Date;
     @Column()
     datasource: string;
