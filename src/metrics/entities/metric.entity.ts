@@ -24,6 +24,6 @@ export class Metric {
     confidence95: string;
     @Column()
     forecastingError: string;
-    @Column()
+    @Column({ array: true })
     qualityFactors: string[];
 }
