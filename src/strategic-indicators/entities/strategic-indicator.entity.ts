@@ -18,8 +18,8 @@ export class StrategicIndicator {
     value_description: string;
     @Column()
     rationale: string;
-    @Column()
-    probabilities: Array<Probabilities>;
+    @Column('text', { array: true })
+    probabilities: Array<string>;
     @Column({ type: 'datetime' })
     date: Date;
     @Column()
@@ -36,6 +36,6 @@ export class StrategicIndicator {
     confidence95: string;
     @Column({ nullable: true })
     forecastingError: string;
-    @Column()
+    @Column('text', { array: true })
     missingFactors: Array<string>;
 }

@@ -26,11 +26,11 @@ export class QualityFactor {
     forecastingError: string;
     @Column({ nullable: true })
     mismatchDays: number;
-    @Column({ nullable: true })
+    @Column('text', { array: true, nullable: true })
     missingMetrics: Array<string>;
     @Column()
     type: string;
-    @Column()
+    @Column('text', { array: true })
     strategicIndicators: Array<string>;
     @Column()
     formattedDate: string;
