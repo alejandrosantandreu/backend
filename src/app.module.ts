@@ -18,7 +18,7 @@ import { UsersModule } from './users/users.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'surus',
+      host: 'surus.db.elephantsql.com',
       port: 5432,
       username: 'kbcpidul',
       password: '5_gb5BZMsGEkgOdyA9SCuUbVwFSADCCC',
