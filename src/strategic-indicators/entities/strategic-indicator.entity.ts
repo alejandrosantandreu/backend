@@ -13,7 +13,7 @@ export class StrategicIndicator {
     @Column()
     description: string;
     @Column()
-    value: Value;
+    value: number;
     @Column()
     value_description: string;
     @Column()

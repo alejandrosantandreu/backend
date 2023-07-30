@@ -10,9 +10,10 @@ export class QualityFactor {
     @Column()
     description: string;
     @Column()
-    value: Value;
+    value: number;
     @Column()
     value_description: string;
+    @Column({ type: 'datetime' })
     date: Date;
     @Column()
     datasource: string;
