@@ -1,7 +1,15 @@
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+
+@Entity()
 export class Category {
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
+    @Column()
     name: string;
+    @Column()
     color: string;
+    @Column()
     upperThreshold: number;
+    @Column()
     type: string;
 }
