@@ -14,8 +14,8 @@ export class CategoriesService {
   apiurl:string = 'http://gessi-dashboard.essi.upc.edu:8888/api/metrics/categories'
 
   create(createCategoryDto: CreateCategoryDto) {
-    const newCategory = this.categoryRepository.create(createCategoryDto)
-    return this.categoryRepository.save(newCategory);
+    //const newCategory = this.categoryRepository.create(createCategoryDto)
+    //return this.categoryRepository.save(newCategory);
   }
 
   async findAll(): Promise<Category[]> {
