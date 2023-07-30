@@ -23,7 +23,7 @@ import { UsersModule } from './users/users.module';
       username: 'kbcpidul',
       password: '5_gb5BZMsGEkgOdyA9SCuUbVwFSADCCC',
       database: 'kbcpidul',
-      entities: [__dirname + '/**/entities/*.entity.ts'],
+      entities: [__dirname + '/**/*.entity.ts'],
       synchronize: true,
     }),
     MetricsModule,
