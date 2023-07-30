@@ -9,6 +9,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { ProjectsModule } from './projects/projects.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import entities from './index';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { UsersModule } from './users/users.module';
       username: 'kbcpidul',
       password: '5_gb5BZMsGEkgOdyA9SCuUbVwFSADCCC',
       database: 'kbcpidul',
-      entities: [__dirname + '/**/*.entity.ts'],
+      entities: entities,
       synchronize: true,
     }),
     MetricsModule,
