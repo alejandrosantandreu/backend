@@ -7,6 +7,8 @@ import { QualityFactorsModule } from './quality-factors/quality-factors.module';
 import { StrategicIndicatorsModule } from './strategic-indicators/strategic-indicators.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ProjectsModule } from './projects/projects.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -14,11 +16,22 @@ import { ProjectsModule } from './projects/projects.module';
       timeout: 5000,
       maxRedirects: 5,
     }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'root',
+      password: 'root',
+      database: 'test',
+      entities: [__dirname + '/**/entities/*.entity.ts'],
+      synchronize: true,
+    }),
     MetricsModule,
     QualityFactorsModule,
     StrategicIndicatorsModule,
     CategoriesModule,
     ProjectsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
