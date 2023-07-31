@@ -8,11 +8,9 @@ export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Post()
-  create(@Body() createCategoryDto: Array<CreateCategoryDto>) {
-    for(let i = 0; i < createCategoryDto.length; i++) {
-      this.categoriesService.create(createCategoryDto[i]);
-    }
-    return 
+  create(@Body() createCategoryDto: CreateCategoryDto) {
+    return this.categoriesService.create(createCategoryDto);
+    
   }
 
   @Get('')
