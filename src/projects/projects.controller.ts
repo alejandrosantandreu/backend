@@ -7,6 +7,12 @@ import { UpdateProjectDto } from './dto/update-project.dto';
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
+  @Post()
+  create(@Body() createProjectDto: CreateProjectDto) {
+    return this.projectsService.create(createProjectDto);
+  }
+
+
   @Get('')
   findOne(): any {
     return this.projectsService.findAll();

@@ -7,6 +7,12 @@ import { UpdateStrategicIndicatorDto } from './dto/update-strategic-indicator.dt
 export class StrategicIndicatorsController {
   constructor(private readonly strategicIndicatorsService: StrategicIndicatorsService) {}
 
+  @Post()
+  create(@Body() createStategicIndicatorrDto: CreateStrategicIndicatorDto) {
+    return this.strategicIndicatorsService.create(createStategicIndicatorrDto);
+  }
+
+
   @Get(':id')
   findOne(@Param('id') id: string): any {
     return this.strategicIndicatorsService.findOne(id);

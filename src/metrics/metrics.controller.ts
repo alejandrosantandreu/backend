@@ -7,6 +7,11 @@ import { UpdateMetricDto } from './dto/update-metric.dto';
 export class MetricsController {
   constructor(private readonly metricsService: MetricsService) {}
 
+  @Post()
+  create(@Body() createMetricDto: CreateMetricDto) {
+    return this.metricsService.create(createMetricDto);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): any {
     return this.metricsService.findOne(id);

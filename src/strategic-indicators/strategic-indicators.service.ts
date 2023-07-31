@@ -4,12 +4,19 @@ import { UpdateStrategicIndicatorDto } from './dto/update-strategic-indicator.dt
 import { HttpService } from '@nestjs/axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { StrategicIndicator } from './entities/strategic-indicator.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class StrategicIndicatorsService {
-  constructor(private readonly httpService: HttpService) {}
+  constructor(private readonly httpService: HttpService, @InjectRepository(StrategicIndicator) private strategicIndicatorRepository: Repository<StrategicIndicator>) {}
 
   apiurl:string = 'http://gessi-dashboard.essi.upc.edu:8888/api/strategicIndicators'
+
+  create(createStategicIndicatorrDto: CreateStrategicIndicatorDto) {
+    const newST = this.strategicIndicatorRepository.create(createStategicIndicatorrDto)
+    return this.strategicIndicatorRepository.save(newST);
+  }
 
   async findOne(id: string): Promise<StrategicIndicator[]> {
     const { data } = await firstValueFrom(

@@ -2,7 +2,7 @@ export class CreateQualityFactorDto {
     id: number;
     name: string;
     description: string;
-    value: Value;
+    value: number;
     value_description: string;
     date: Date;
     datasource: string;
@@ -11,9 +11,9 @@ export class CreateQualityFactorDto {
     confidence95: string;
     forecastingError: string;
     mismatchDays: number;
-    missingMetrics: Array<any>;
+    missingMetrics: string[];
     type: any;
-    strategicIndicators: Array<string>;
+    strategicIndicators: string[];
     formattedDate: string;
 }
 

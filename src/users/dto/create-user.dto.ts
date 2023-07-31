@@ -3,4 +3,5 @@ export class CreateUserDto {
     password: string
     email: string
     project: string
+    admin: boolean
 }

@@ -3,10 +3,10 @@ export class CreateStrategicIndicatorDto {
     dbId: number;
     name: string;
     description: string;
-    value: Value;
+    value: number;
     value_description: string;
     rationale: string;
-    probabilities: Array<Probabilities>;
+    probabilities: string[];
     date: Date;
     datasource: string;
     categories_description: string;
@@ -15,7 +15,7 @@ export class CreateStrategicIndicatorDto {
     confidence80: string;
     confidence95: string;
     forecastingError: string;
-    missingFactors: Array<string>;
+    missingFactors: string[];
 }
 
 export class Probabilities {

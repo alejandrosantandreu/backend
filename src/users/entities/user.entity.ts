@@ -10,6 +10,8 @@ export class User {
     password: string
     @Column({unique : true})
     email: string
-    @Column()
+    @Column({ nullable: true })
     project: string
+    @Column({ default: false })
+    admin: boolean
 }

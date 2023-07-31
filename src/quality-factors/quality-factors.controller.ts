@@ -7,6 +7,12 @@ import { UpdateQualityFactorDto } from './dto/update-quality-factor.dto';
 export class QualityFactorsController {
   constructor(private readonly qualityFactorsService: QualityFactorsService) {}
 
+  @Post()
+  create(@Body() createQualityFactorDto: CreateQualityFactorDto) {
+    return this.qualityFactorsService.create(createQualityFactorDto);
+  }
+
+
   @Get(':id')
   findOne(@Param('id') id: string): any {
     return this.qualityFactorsService.findOne(id);
