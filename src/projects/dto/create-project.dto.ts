@@ -1,4 +1,5 @@
 export class CreateProjectDto {
+    id: number;
     externalId: string;
     name: string;
     description: string;

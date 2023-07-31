@@ -1,4 +1,5 @@
 export class CreateQualityFactorDto {
+    id: number;
     name: string;
     description: string;
     value: Value;

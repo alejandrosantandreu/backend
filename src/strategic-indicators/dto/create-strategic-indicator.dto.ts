@@ -1,4 +1,5 @@
 export class CreateStrategicIndicatorDto {
+    id: number;
     dbId: number;
     name: string;
     description: string;

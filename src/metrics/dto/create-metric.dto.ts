@@ -1,4 +1,5 @@
 export class CreateMetricDto {
+    id: number;
     name: string;
     description: string;
     value: number;
