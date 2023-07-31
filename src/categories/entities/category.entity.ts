@@ -1,5 +1,14 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
+export class ColumnNumericTransformer {
+    to(data: number): number {
+        return data;
+    }
+    from(data: string): number {
+        return parseFloat(data);
+    }
+}
+
 @Entity()
 export class Category {
     @PrimaryGeneratedColumn()
@@ -17,9 +26,12 @@ export class Category {
     })
     color: string;
 
-    @Column({
+    @Column('numeric', {
         nullable: false,
-        default: 0,
+        precision: 10, 
+        scale: 2, 
+        default: 0.0,
+        transformer: new ColumnNumericTransformer(),
     })
     upperThreshold: number;
 
@@ -29,3 +41,5 @@ export class Category {
     })
     type: string;
 }
+
+
