@@ -28,7 +28,7 @@ export class Category {
 
     @Column('numeric', {
         nullable: false,
-        precision: 10, 
+        precision: 3, 
         scale: 2, 
         default: 0.0,
         transformer: new ColumnNumericTransformer(),
