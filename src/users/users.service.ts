@@ -25,8 +25,9 @@ export class UsersService {
         password: user.password
       }
     })
-    let retorno = u.then((u) => retorno = [{username: u.username, project: u.project, admin: u.admin}])
-    .catch(error => retorno = 'User or password is incorrect')
+    let retorno = u.then((u) => {return [{username: u.username, project: u.project, admin: u.admin}]})
+    .catch(error => {return error})
+
     return retorno
   }
 
