@@ -5,6 +5,9 @@ import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoginUserDto } from './dto/login-user.dto';
+import { error } from 'console';
+import { catchError } from 'rxjs';
+import { resolve } from 'path';
 
 @Injectable()
 export class UsersService {
@@ -16,13 +19,15 @@ export class UsersService {
   }
 
   login(user: LoginUserDto) {
-    let username = user.username
     const u = this.userRepository.findOne({
       where: {
-        username
+        username: user.username,
+        password: user.password
       }
     })
-    return u
+    let retorno = u.then((u) => retorno = [{username: u.username, project: u.project, admin: u.admin}])
+    .catch(error => retorno = 'User or password is incorrect')
+    return retorno
   }
 
   findAll() {
