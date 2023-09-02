@@ -7,6 +7,7 @@ import { Project } from './entities/project.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateCategoryDto } from 'src/categories/dto/create-category.dto';
 import { Repository } from 'typeorm';
+import { AxiosHeaders } from 'axios';
 
 @Injectable()
 export class ProjectsService {
@@ -20,8 +21,17 @@ export class ProjectsService {
   }
 
   async findAll(): Promise<Project[]> {
+    let headers = new AxiosHeaders({
+      accept: 'text/html, application/xhtml+xml, */*',
+      'Content-Type': 'application/json',
+      'Acces-Control-Allow-Origin': '*',
+      'Acces-Control-Allow-Methods': 'GET, POST, PUT, OPTIONS, DELETE',
+      'Acces-Control-Allow-Headers': 
+        'Content-Type, Acces-Control-Allow-Headers, Authorization, X-Request-With',
+    });
+
     const { data } = await firstValueFrom(
-      this.httpService.get(this.apiurl).pipe(),
+      this.httpService.get(this.apiurl, {headers: headers}).pipe(),
     );
     return data;
   }
