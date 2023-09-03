@@ -8,8 +8,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateCategoryDto } from 'src/categories/dto/create-category.dto';
 import { Repository } from 'typeorm';
 import { AxiosHeaders } from 'axios';
-import { AppModule } from 'src/app.module';
-import { NestFactory } from '@nestjs/core';
 
 @Injectable()
 export class ProjectsService {
@@ -23,13 +21,6 @@ export class ProjectsService {
   }
 
   async findAll(): Promise<Project[]> {
-    const app = await NestFactory.create(AppModule);
-    app.enableCors({
-
-      origin:'*',
-      
-      });
-    await app.listen(3000);
     const headers = {
       'Content-Type': 'application/json',
       'Acces-Control-Allow-Origin': '*',
