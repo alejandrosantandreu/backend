@@ -24,7 +24,11 @@ export class ProjectsService {
 
   async findAll(): Promise<Project[]> {
     const app = await NestFactory.create(AppModule);
-    app.enableCors();
+    app.enableCors({
+
+      origin:'*',
+      
+      });
     await app.listen(3000);
     const headers = {
       'Content-Type': 'application/json',
@@ -33,7 +37,7 @@ export class ProjectsService {
     };
 
     const { data } = await firstValueFrom(
-      this.httpService.get(this.apiurl, {headers: headers}).pipe(),
+      this.httpService.get(this.apiurl).pipe(),
     );
     
     return data;
