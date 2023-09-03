@@ -21,14 +21,11 @@ export class ProjectsService {
   }
 
   async findAll(): Promise<Project[]> {
-    let headers = new AxiosHeaders({
-      accept: 'text/html, application/xhtml+xml, */*',
+    const headers = {
       'Content-Type': 'application/json',
       'Acces-Control-Allow-Origin': '*',
       'Acces-Control-Allow-Methods': 'GET, POST, PUT, OPTIONS, DELETE',
-      'Acces-Control-Allow-Headers': 
-        'Content-Type, Acces-Control-Allow-Headers, Authorization, X-Request-With',
-    });
+    };
 
     const { data } = await firstValueFrom(
       this.httpService.get(this.apiurl, {headers: headers}).pipe(),
