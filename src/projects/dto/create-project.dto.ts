@@ -1,14 +1,13 @@
 export class CreateProjectDto {
-    id: number;
     externalId: string;
     name: string;
     description: string;
-    logo: null;
+    logo: string;
     active: boolean;
     backlogId: string;
     taigaURL: string;
     githubURL: string;
-    prtURL: null;
+    prtURL: string;
     isGlobal: boolean;
-    students: null;
+    students: string;
 }
