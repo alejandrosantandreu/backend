@@ -14,7 +14,7 @@ export class Project {
     logo: string;
     @Column()
     active: boolean;
-    @Column()
+    @Column({ nullable: true, default: null })
     backlogId: string;
     @Column()
     taigaURL: string;
