@@ -5,7 +5,7 @@ import { HttpService } from '@nestjs/axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { Metric } from './entities/metric.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Between, Repository } from 'typeorm';
 
 @Injectable()
 export class MetricsService {
@@ -49,21 +49,21 @@ export class MetricsService {
     let f = new Date(from)
     let t = new Date(to)
     let rang = from
-    let respuesta = []
+    let list: string[] = []
     for(let i = f.getDate(); i <= t.getDate(); i++) {
-      const u = this.metricRepository.find({
-        where: {
-          project: id,
-          date: rang,
-        }
-      })
-      .catch(error => {return error})
       f.setDate(f.getDate() + 1)
       rang = this.changeDate(f, rang)
-      respuesta.push(u)
+      list.push(rang)
     }
+    const u = this.metricRepository.find({
+      where: {
+        project: id,
+        date: Between(from, to)
+      }
+    })
+    .catch(error => {return error})
     
-    return respuesta
+    return u
 
     const { data } = await firstValueFrom(
       this.httpService.get(this.apiurl+'/historical?prj='+id+'&from='+from+'&to='+to).pipe(),
