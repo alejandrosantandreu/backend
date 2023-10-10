@@ -19,6 +19,14 @@ export class MetricsService {
   }
 
   async findOne(id: string): Promise<Metric[]> {
+    const u = this.metricRepository.findOne({
+      where: {
+        project: id,
+      }
+    })
+    .catch(error => {return error})
+
+    return u
     const { data } = await firstValueFrom(
       this.httpService.get(this.apiurl+'/current?prj='+id).pipe(),
     );
