@@ -19,7 +19,7 @@ export class MetricsService {
   }
 
   async findOne(id: string): Promise<Metric[]> {
-    const u = this.metricRepository.findOne({
+    const u = this.metricRepository.find({
       where: {
         project: id,
       }
