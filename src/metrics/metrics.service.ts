@@ -33,7 +33,23 @@ export class MetricsService {
     return data;
   }
 
-  async findHistoric(id: string, from: string, to: string): Promise<Metric[]> {
+  async findHistoric(id: string, from: Date, to: Date): Promise<Metric[]> {
+    let rang = from
+    const respuesta = []
+    for(let i = from.getDay(); i < to.getDay(); i++) {
+      const u = this.metricRepository.find({
+        where: {
+          project: id,
+          date: rang,
+        }
+      })
+      .catch(error => {return error})
+      rang.setDate(rang.getDate() + 1)
+      respuesta.push(u)
+    }
+    
+    return respuesta
+
     const { data } = await firstValueFrom(
       this.httpService.get(this.apiurl+'/historical?prj='+id+'&from='+from+'&to='+to).pipe(),
     );
