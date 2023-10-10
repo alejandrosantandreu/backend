@@ -19,7 +19,7 @@ export class MetricsController {
 
   @Get('/:id/:from/:to')
   findHistoric(@Param('id') id: string, @Param('from') from: string, @Param('to') to: string) {
-    return this.metricsService.findHistoric(id, new Date(from), new Date(to));
+    return this.metricsService.findHistoric(id, from, to);
   }
 
 }

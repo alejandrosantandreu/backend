@@ -38,8 +38,8 @@ export class Metric {
     })
     value_description: number;
 
-    @Column('date')
-    date: Date;
+    @Column()
+    date: string;
 
     @Column()
     rationale: string;

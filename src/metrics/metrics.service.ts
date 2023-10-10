@@ -33,10 +33,24 @@ export class MetricsService {
     return data;
   }
 
-  async findHistoric(id: string, from: Date, to: Date): Promise<Metric[]> {
+  changeDate(date: Date, rang: string) {
+    let aux = date.getDay()
+    let x = rang.split('-')
+    let respuesta = ''
+    if(aux == 1) x[1] = (parseInt(x[1]) + 1).toString()
+    if(x[1] == '1') x[0] = (parseInt(x[0]) + 1).toString()
+    if(parseInt(x[1]) < 10) x[1] = '0' + x[1]
+
+    respuesta = x[0] + '-' + x[1] + '-' + aux.toString()
+    return respuesta
+  }
+
+  async findHistoric(id: string, from: string, to: string): Promise<Metric[]> {
+    let f = new Date(from)
+    let t = new Date(to)
     let rang = from
-    const respuesta = []
-    for(let i = from.getDay(); i <= to.getDay(); i++) {
+    let respuesta = []
+    for(let i = f.getDay(); i <= t.getDay(); i++) {
       const u = this.metricRepository.find({
         where: {
           project: id,
@@ -44,7 +58,8 @@ export class MetricsService {
         }
       })
       .catch(error => {return error})
-      rang.setDate(rang.getDate() + 1)
+      f.setDate(f.getDate() + 1)
+      rang = this.changeDate(f, rang)
       respuesta.push(u)
     }
     
