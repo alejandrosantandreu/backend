@@ -34,7 +34,7 @@ export class MetricsService {
   }
 
   changeDate(date: Date, rang: string) {
-    let aux = date.getDay()
+    let aux = date.getDate()
     let x = rang.split('-')
     let respuesta = ''
     if(aux == 1) x[1] = (parseInt(x[1]) + 1).toString()
@@ -50,7 +50,7 @@ export class MetricsService {
     let t = new Date(to)
     let rang = from
     let respuesta = []
-    for(let i = f.getDay(); i <= t.getDay(); i++) {
+    for(let i = f.getDate(); i <= t.getDate(); i++) {
       const u = this.metricRepository.find({
         where: {
           project: id,
