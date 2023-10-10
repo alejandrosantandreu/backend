@@ -5,6 +5,6 @@ export class CreateMetricDto {
     value_description: number;
     date: Date;
     rationale: string;
-    qualityFactors: Array<string>;
+    factors: Array<string>;
     project: string;
 }

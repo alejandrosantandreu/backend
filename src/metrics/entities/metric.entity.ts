@@ -45,7 +45,7 @@ export class Metric {
     rationale: string;
 
     @Column('text', { array: true })
-    qualityFactors: string[];
+    factors: string[];
 
     @Column()
     project: string;
