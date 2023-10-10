@@ -36,7 +36,7 @@ export class MetricsService {
   async findHistoric(id: string, from: Date, to: Date): Promise<Metric[]> {
     let rang = from
     const respuesta = []
-    for(let i = from.getDay(); i < to.getDay(); i++) {
+    for(let i = from.getDay(); i <= to.getDay(); i++) {
       const u = this.metricRepository.find({
         where: {
           project: id,
