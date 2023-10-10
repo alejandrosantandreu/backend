@@ -3,7 +3,7 @@ export class CreateMetricDto {
     description: string;
     value: number;
     value_description: number;
-    evaluationDate: Date;
+    date: Date;
     rationale: string;
     factors: Array<string>;
     project: string;
