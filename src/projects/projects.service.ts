@@ -21,6 +21,10 @@ export class ProjectsService {
   }
 
   async findAll(): Promise<Project[]> {
+    const u = this.projectRepository.find()
+    .catch(error => {return error})
+
+    return u
     const headers = {
       'Content-Type': 'application/json',
       'Acces-Control-Allow-Origin': '*',
