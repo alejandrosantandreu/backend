@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateMetricDto } from './dto/create-metric.dto';
 import { UpdateMetricDto } from './dto/update-metric.dto';
 import { HttpService } from '@nestjs/axios';
-import { catchError, firstValueFrom } from 'rxjs';
+import { catchError, firstValueFrom, max } from 'rxjs';
 import { Metric } from './entities/metric.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, Repository } from 'typeorm';
@@ -22,6 +22,7 @@ export class MetricsService {
     const u = this.metricRepository.find({
       where: {
         project: id,
+        date: '2023-10-16'
       }
     })
     .catch(error => {return error})
