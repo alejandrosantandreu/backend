@@ -46,7 +46,7 @@ export class MetricsService {
     return respuesta
   }
 
-  async findHistoric(id: string, from: string, to: string): Promise<Metric[]> {
+  async findHistoric(id: string, from: string, to: string): Promise<any[]> {
     let f = new Date(from)
     let t = new Date(to)
     let rang = from
@@ -60,6 +60,9 @@ export class MetricsService {
       where: {
         project: id,
         date: Between(from, to)
+      },
+      order: {
+        date: 'asc'
       }
     })
     .catch(error => {return error})
